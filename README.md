@@ -12,7 +12,7 @@ Using a combination of Part of Speech (POS) tagging as well as the BM25 algorith
 This project assumes that you have stored your content in Azure Blob Storage and the content is in a format supported by Apache Tika (such as PDF, Office, HTML or Text). 
 
 ## Language Support
-Currently, this processor supports English, however, you can cery easily add support for other languages by other POS taggers supported by Stanford NLP.
+Currently, this processor supports English, however, you can very easily add support for other languages by other POS taggers supported by Stanford NLP.
 
 ## Performance and Scale
 This processing is done purely on a single machine. It has done really well for 100's of thousands of files and even millions of smaller documents (1-2KB), but if your content is larger, you will want to look at how to parallelize this using something like Spark or Azure Data Lake Analytics.
@@ -35,7 +35,7 @@ Once this is complete, you can run the project, which will complete the followin
 
 - Determine a set of phrases across all the documents which are stored in a SQLite database
 - Using this set of phrases calculate their BM25 values according to their importance in the overall corpus of content
-- Write the resuting phrases and their BM25 scores to a file called keyphrases.sqlite which will be used as the model for the next step
+- Write the resulting phrases and their BM25 scores to a file called keyphrases.sqlite which will be used as the model for the next step
 
 ### Analyzing a Document to Extract Key Phrases and Create a Summary
 
