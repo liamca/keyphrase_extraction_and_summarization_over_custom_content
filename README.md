@@ -14,5 +14,25 @@ This project assumes that you have stored your content in Azure Blob Storage and
 ## Language Support
 Currently, this processor supports English, however, you can cery easily add support for other languages by other POS taggers supported by Stanford NLP.
 
-Performance and Scale
+## Performance and Scale
 This processing is done purely on a single machine. It has done really well for 100's of thousands of files and even millions of smaller documents (1-2KB), but if your content is larger, you will want to look at how to parallelize this using something like Spark or Azure Data Lake Analytics.
+
+## Getting Started
+### Extracting Key Phrases
+
+The first step will be to extract a "model" of key phrases.  To do this, you will leverage the "CreateModelOfKeyPhrasesUsingPOSandBM25" project included within this solution.  Before running, you will need to modify [program.cs](https://github.com/liamca/keyphrase_extraction_and_summarization_over_custom_content/blob/master/CreateModelOfKeyPhrasesUsingPOSandBM25/Program.cs) and update the following parameters:
+
+        private static string BlobService = [Enter Blob Storage Name];
+        private static string BlobKey = [Enter Blob Storage API Key];
+        private static string BlobContainer = [Enter Blob Storage Container];
+        ...
+        // Loading POS Tagger
+        static string JarRoot = [Enter Location of stanford-postagger-2017-06-09];
+
+NOTE: If you do not have a copy of the Stanford POS Tagger, you can download it [here](https://nlp.stanford.edu/software/tagger.shtml).
+
+Once this is complete, you can run the project, which will complete the following tasks:
+
+- Determine a set of phrases across all the documents which are stored in a SQLite database
+- Using this set of phrases calculate their BM25 values according to their importance in the overall corpus of content
+- Write the resuting phrases and their BM25 scores to a file called keyphrases.sqlite which will be used as the model for the next step
