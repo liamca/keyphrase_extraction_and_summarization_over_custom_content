@@ -66,9 +66,6 @@ namespace AFExtractKeyPhrasesAndSummariesBM25
                 {
                     var outRecord = new WebApiResponseRecord() { recordId = inRecord.recordId };
 
-                    string name = inRecord.data["name"] as string;
-                    log.Info($"Processing Search Document:{name}");
-
                     try
                     {
                         log.Info($"Processing Document...");
