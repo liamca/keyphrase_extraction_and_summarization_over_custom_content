@@ -45,6 +45,7 @@ Now that we have a model of key phrases from a corpus of content, we can use thi
 - Build and either run the project locally or deploy to Azure Function
 - Open a tool such as [Postman](https://www.getpostman.com/) and execute a POST with the URL: http://localhost:7071/api/analyze (assuming you are running the project locally) with the following raw Body (where you can feel free to replace the content as needed):
 
+```json
 {
     "values": [
         {
@@ -63,9 +64,10 @@ Now that we have a model of key phrases from a corpus of content, we can use thi
         }
     ]
 }
+```
 
 If everything runs successfully (and depending on the key phrases you had previously created), the results will look something like this:
-
+```json
 {
     "values": [
         {
@@ -88,5 +90,4 @@ If everything runs successfully (and depending on the key phrases you had previo
         }
     ]
 }
-
-
+```
