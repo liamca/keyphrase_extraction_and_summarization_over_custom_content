@@ -37,7 +37,7 @@ namespace AFExtractKeyPhrasesAndSummariesBM25
         private static string RootDir = @"D:\home\site\wwwroot";
 #endif
 
-        private static string KeyPhraseDB = System.IO.Path.Combine(RootDir, @"data\news-2017.sqlite");
+        private static string KeyPhraseDB = System.IO.Path.Combine(RootDir, @"data\keyphrases.sqlite");
 
         //System.IO.Directory.GetCurrentDirectory() 
 
