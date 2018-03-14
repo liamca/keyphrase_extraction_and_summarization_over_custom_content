@@ -43,7 +43,9 @@ Now that we have a model of key phrases from a corpus of content, we can use thi
 
 - Add the keyphrases.sqlite file created from the last step to new folder called "data" within the project
 - Build and either run the project locally or deploy to Azure Function
-- Open a tool such as [Postman](https://www.getpostman.com/) and execute a POST with the URL: http://localhost:7071/api/analyze (assuming you are running the project locally) with the following raw Body (where you can feel free to replace the content as needed):
+- Open a tool such as [Postman](https://www.getpostman.com/) and execute a POST with the URL: http://localhost:7071/api/analyze (assuming you are running the project locally) with the following raw Body (where you can feel free to replace the content as needed).
+
+The following example was using key phrases generated from a health care set of content:
 
 ```json
 {
@@ -51,15 +53,38 @@ Now that we have a model of key phrases from a corpus of content, we can use thi
         {
             "recordId": "meta1",
             "data": {
-                "name": "name1",
-                "content": "Rockhaven Sanitarium Historic District, Glendale, California one of the best extant examples of an early twentieth century woman-owned, women-serving private sanitarium in the State. It was one of the first of its type in the nation. It reflects the vision of Agnes Richards, R.N., and represents a small but significant movement that sought to improve the conditions of mentally ill women in the early"
+                "name": "Why Does America Spend More on Health Care?",
+                "content": "
+				By Dennis Thompson - HealthDay Reporter 
+				TUESDAY, March 13, 2018 (HealthDay News) -- It's well-known that the United States spends a lot more for its health care than other industrialized nations do.
+				But a new study claims that some of the purported explanations for why America's health care bill is so huge simply do not wash.
+				The United States does not use more health care than high-income peers like Canada, Germany, France and Japan, said study co-author Liana Woskie, assistant director of the Harvard Global Health Institute's strategic initiative on quality.
+				Nor does America have too many high-paid specialists. 'At least compared to peers, we have a pretty similar mix of primary care to specialists,' Woskie added.
+				Instead, it looks as though the United States pays more because it faces higher price tags for drugs, tests, office visits and administration, Woskie said.
+				'We need to better understand why prices are so high and dive into that into much more detail, because some of the previous explanations may not actually be what's driving the U.S.'s spending,' she said.
+				For this study, Woskie and her colleagues pulled together comprehensive data comparing U.S. health care against that of 10 other leading countries -- the United Kingdom, Canada, Germany, Australia, Japan, Sweden, France, the Netherlands, Switzerland and Denmark.
+				The investigators found that the United States spends nearly twice as much of its wealth on health care -- 17.8 percent of its gross domestic product, compared with between 9.6 percent and 12.4 percent in other countries.
+				That money is not buying the United States better health, however. For example, America had the lowest life expectancy and the highest infant mortality when compared to the other countries.
+				The United States has about as many doctors and nurses as the other nations, and similar rates of treatment.
+				But cost varied widely when it came to drugs. Pharmaceutical spending was $1,443 per person in the United States, compared to a range of $466 to $939 in other countries.
+				Americans also appear to pay more for diagnostic tests and office visits, Woskie said.
+				"
             }
         },
         {
             "recordId": "meta2",
             "data": {
-                "name": "name2",
-                "content": "The National Register (NR) of Historic Places program has initiated a project to update/revise the National Register Bulletin: How to Complete the National Register Registration Form.* This NR publication provides guidance for identifying, evaluating, and documenting properties that are historically significant in American history, architecture, engineering, landscape design, archeology, and culture at the local, state, "
+                "name": "Researchers computationally find the needle in a haystack to treat rare diseases",
+                "content": "Date:March 13, 2018 Source:Louisiana State University Summary:One in 10 people in America is fighting a rare disease, or a disorder that affects fewer than 200,000 Americans. Researchers have developed a sophisticated and systematic way to identify existing drugs that can be repositioned to treat a rare disease or condition. Share:
+					Chemotherapeutic vandetanib bound to its main target, Protein Tyrosine Kinase 6, or PTK6, in purple, which is involved in many cancers including gastrointestinal tumors and ovarian cancers. By modeling vandetanib and PTK6 complex, researchers at LSU found the KRAS protein to also contain a similar drug-binding site and therefore to be a good match for the same drug. The computer-generated model of KRAS in gold with vandetanib depicts the predicted interaction.
+					Credit: Misagh Naderi, LSU.
+					One in 10 people in America is fighting a rare disease, or a disorder that affects fewer than 200,000 Americans. Although there are more than 7,000 rare diseases that collectively affect more than 350 million people worldwide, it is not profitable for the pharmaceutical industry to develop new therapies to treat the small number of people suffering from each rare condition. Researchers at the LSU Computational Systems Biology group have developed a sophisticated and systematic way to identify existing drugs that can be repositioned to treat a rare disease or condition. They have fine-tuned a computer-assisted drug repositioning process that can save time and money in helping these patients receive effective treatment.
+					'Rare diseases sometimes affect such a small population that discovering treatments would not be financially feasible unless through humanitarian and governmental incentives. These conditions that are sometimes left untreated are labeled 'orphan diseases.' We developed a way to computationally find matches between rare disease protein structures and functions and existing drug interactions that can help treat patients with some of these orphan diseases,' said Misagh Naderi, one of the paper's lead authors and a doctoral candidate in the LSU Department of Biological Sciences.
+					This research will be published this week in the npj Systems Biology and Applications journal, published by the Nature Publishing Group in partnership the Systems Biology Institute.
+					'In the past, most repurposed drugs were discovered serendipitously. For example, the drug amantadine was first introduced to treat respiratory infections. However, a few years later, a patient with Parkinson's disease experienced a dramatic improvement of her disease symptoms while taking the drug to treat the flu. This observation sparked additional research. Now, amantadine is approved by the Food Drug Administration as both an antiviral and an antiparkinsonian drug. But, we can not only rely on chance to find a treatment for an orphan disease,' said Dr. Michal Brylinski, the head of the Computational Systems Biology group at LSU.
+					To systematize drug repurposing, Naderi, co-author Rajiv Gandhi Govindaraj and colleagues combined eMatchSite, a software developed by the same group with virtual screening to match FDA approved drugs and proteins that are involved in rare diseases. LSU super computers allows them to test millions of possibilities that will cost billions of dollars to test in the lab.
+					This work was supported by the National Institute of General Medical Sciences of the National Institutes of Health [R35GM119524].
+					 "
             }
         }
     ]
@@ -73,8 +98,8 @@ If everything runs successfully (and depending on the key phrases you had previo
         {
             "recordId": "meta1",
             "data": {
-                "keyphrases": "[\"best extant example\",\"glendale\"]",
-                "summaries": "[\"Rockhaven Sanitarium Historic District, Glendale, California one of the best extant examples of an early twentieth century woman-owned, women-serving private sanitarium in the State\"]"
+                "keyphrases": "[\"other nation\",\"came\",\"gross domestic product\",\"assistant director\",\"similar rate\",\"office visit\",\"other industrialized nation\",\"other country\",\"has\",\"united state\",\"more detail\",\"many doctor\",\"peer\",\"diagnostic test\",\"strategic initiative\",\"understand\",\"health care bill\",\"dive\",\"denmark\",\"wash\",\"buying\",\"netherland\",\"wealth\",\"primary care\",\"huge\",\"switzerland\",\"said\",\"united kingdom\",\"healthday news\",\"sweden\"]",
+                "summaries": "[\"\\n\\t\\t\\t\\tThe United States does not use more health care than high-income peers like Canada, Germany, France and Japan, said study co-author Liana Woskie, assistant director of the Harvard Global Health Institute's strategic initiative on quality\",\"\\n\\t\\t\\t\\tInstead, it looks as though the United States pays more because it faces higher price tags for drugs, tests, office visits and administration, Woskie said\",\"\\n\\t\\t\\t\\tThe United States has about as many doctors and nurses as the other nations, and similar rates of treatment\"]"
             },
             "errors": [],
             "warnings": []
@@ -82,8 +107,8 @@ If everything runs successfully (and depending on the key phrases you had previo
         {
             "recordId": "meta2",
             "data": {
-                "keyphrases": "[\"national register registration form\"]",
-                "summaries": "[\"The National Register (NR) of Historic Places program has initiated a project to update/revise the National Register Bulletin: How to Complete the National Register Registration Form\"]"
+                "keyphrases": "[\"nature publishing group\",\"biological science\",\"main target\",\"orphan disease\",\"systematic way\",\"lsu\",\"contain\",\"humanitarian\",\"dramatic improvement\",\"small population\",\"amantadine\",\"purple\",\"has\",\"developed\",\"same group\",\"good match\",\"same drug\",\"few year\",\"protein tyrosine kinase\",\"doctoral candidate\",\"dollar\",\"rare condition\",\"rare disease\",\"profitable\",\"person suffering\",\"sophisticated\",\"antiviral\",\"involved\",\"ovarian cancer\",\"pharmaceutical industry\"]",
+                "summaries": "[\" By modeling vandetanib and PTK6 complex, researchers at LSU found the KRAS protein to also contain a similar drug-binding site and therefore to be a good match for the same drug\",\" Researchers at the LSU Computational Systems Biology group have developed a sophisticated and systematic way to identify existing drugs that can be repositioned to treat a rare disease or condition\",\"' We developed a way to computationally find matches between rare disease protein structures and functions and existing drug interactions that can help treat patients with some of these orphan diseases,' said Misagh Naderi, one of the paper's lead authors and a doctoral candidate in the LSU Department of Biological Sciences\"]"
             },
             "errors": [],
             "warnings": []
