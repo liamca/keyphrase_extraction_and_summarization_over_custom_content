@@ -53,7 +53,6 @@ The following example was using key phrases generated from a health care set of 
         {
             "recordId": "meta1",
             "data": {
-                "name": "Why Does America Spend More on Health Care?",
                 "content": "
 				By Dennis Thompson - HealthDay Reporter 
 				TUESDAY, March 13, 2018 (HealthDay News) -- It's well-known that the United States spends a lot more for its health care than other industrialized nations do.
@@ -74,7 +73,6 @@ The following example was using key phrases generated from a health care set of 
         {
             "recordId": "meta2",
             "data": {
-                "name": "Researchers computationally find the needle in a haystack to treat rare diseases",
                 "content": "Date:March 13, 2018 Source:Louisiana State University Summary:One in 10 people in America is fighting a rare disease, or a disorder that affects fewer than 200,000 Americans. Researchers have developed a sophisticated and systematic way to identify existing drugs that can be repositioned to treat a rare disease or condition. Share:
 					Chemotherapeutic vandetanib bound to its main target, Protein Tyrosine Kinase 6, or PTK6, in purple, which is involved in many cancers including gastrointestinal tumors and ovarian cancers. By modeling vandetanib and PTK6 complex, researchers at LSU found the KRAS protein to also contain a similar drug-binding site and therefore to be a good match for the same drug. The computer-generated model of KRAS in gold with vandetanib depicts the predicted interaction.
 					Credit: Misagh Naderi, LSU.
