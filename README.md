@@ -3,7 +3,7 @@
 ## Overview
 The purpose of this project is to show a method for extracting key terms and phrases from a large set of content.  It also leverages the resulting key phrases to allow for document summarization.  The resulting data can be used in search applications such as Azure Search to allow you to more effectively explore this unstructured data.
 
-Key Phrase Extraction using Full Corpus vs API's
+## Key Phrase Extraction using Full Corpus vs API's
 There are numerous API's that allow you to provide the ability to both extract key phrases and generate summaries over a set of text. These API's are extremely simply, albeit that they can be costly for large data sets. The biggest issue with these API's is that they have been trained against datasets that may very well not be related to your content. For example, if you have a medical dataset, and the API was trained using words from WikiPedia, the terms that are important in your content might not be the same as what was found from WikiPedia.
 
 Using a combination of Part of Speech (POS) tagging as well as the BM25 algorithm, we can scan an entire set of documents to identify what is defined as the most important terms. BM25, has been used for quite some time in search engines to help identify important content, so leveraging this as a method for key phrase extraction has been well proven.
