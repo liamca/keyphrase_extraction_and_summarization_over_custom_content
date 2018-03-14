@@ -36,3 +36,57 @@ Once this is complete, you can run the project, which will complete the followin
 - Determine a set of phrases across all the documents which are stored in a SQLite database
 - Using this set of phrases calculate their BM25 values according to their importance in the overall corpus of content
 - Write the resuting phrases and their BM25 scores to a file called keyphrases.sqlite which will be used as the model for the next step
+
+### Analyzing a Document to Extract Key Phrases and Create a Summary
+
+Now that we have a model of key phrases from a corpus of content, we can use this to process any new content that we like.  An example of how to do this is provided in the project AFExtractKeyPhrasesBM25, which is an Azure Function that can be deployed for this purpose.  To do this, you will need to 
+
+- Add the keyphrases.sqlite file created from the last step to new folder called "data" within the project
+- Build and either run the project locally or deploy to Azure Function
+- Open a tool such as [Postman](https://www.getpostman.com/) and execute a POST with the URL: http://localhost:7071/api/analyze (assuming you are running the project locally) with the following raw Body (where you can feel free to replace the content as needed):
+
+{
+    "values": [
+        {
+            "recordId": "meta1",
+            "data": {
+                "name": "name1",
+                "content": "Rockhaven Sanitarium Historic District, Glendale, California one of the best extant examples of an early twentieth century woman-owned, women-serving private sanitarium in the State. It was one of the first of its type in the nation. It reflects the vision of Agnes Richards, R.N., and represents a small but significant movement that sought to improve the conditions of mentally ill women in the early"
+            }
+        },
+        {
+            "recordId": "meta2",
+            "data": {
+                "name": "name2",
+                "content": "The National Register (NR) of Historic Places program has initiated a project to update/revise the National Register Bulletin: How to Complete the National Register Registration Form.* This NR publication provides guidance for identifying, evaluating, and documenting properties that are historically significant in American history, architecture, engineering, landscape design, archeology, and culture at the local, state, "
+            }
+        }
+    ]
+}
+
+If everything runs successfully (and depending on the key phrases you had previously created), the results will look something like this:
+
+{
+    "values": [
+        {
+            "recordId": "meta1",
+            "data": {
+                "keyphrases": "[\"best extant example\",\"glendale\"]",
+                "summaries": "[\"Rockhaven Sanitarium Historic District, Glendale, California one of the best extant examples of an early twentieth century woman-owned, women-serving private sanitarium in the State\"]"
+            },
+            "errors": [],
+            "warnings": []
+        },
+        {
+            "recordId": "meta2",
+            "data": {
+                "keyphrases": "[\"national register registration form\"]",
+                "summaries": "[\"The National Register (NR) of Historic Places program has initiated a project to update/revise the National Register Bulletin: How to Complete the National Register Registration Form\"]"
+            },
+            "errors": [],
+            "warnings": []
+        }
+    ]
+}
+
+
